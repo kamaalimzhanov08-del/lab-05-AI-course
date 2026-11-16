@@ -21,7 +21,8 @@ Give the numbers before -> after for that layer (correct / wrong / no answer, ou
 whether it changed what the agent *can do* or only what it *admits*. If no layer changed the
 number of correct answers, say so and explain what the layers did change instead.
 
-(write here)
+(Layer 1 had the most significant impact on the result: 16 / 4 / 4 to 18 / 6 / 0 . The number of correct answers increased, but so did the number of errors—the ability to continue after a tool-related error does not guarantee a correct answer.)
+
 
 ## 2. One failure the full harness did not fix
 
@@ -30,7 +31,7 @@ Pick one question that the full harness (layer 3) still gets wrong or refuses. G
 the model do instead? Name one thing you would add to the harness, and what it would cost
 (extra model calls, tokens, time, or a new way to fail).
 
-(write here)
+(In Q18, the model formulated the calculation incorrectly it divided the difference by 100 which is unnecessary when dealing with percentage points. The calculator returned 0.055 and the model output 0.55. The answer was rejected and marked as UNVERIFIED. I would suggest adding a formula-validation step prior to the actual calculation. This would require additional code and a retry would consume more tokens and time)
 
 ## 3. Workflow or agent for the monthly ranking?
 
@@ -39,7 +40,7 @@ indicator in one year". Would you ship the fixed workflow or the agent? Use the 
 number of model calls, the tokens and the time you measured in Part 1. Then say in one sentence
 what kind of question would make you choose the other one.
 
-(write here)
+(I would choose the fixed workflow because monthly rankings follow the same steps. I would choose an agent for questions needing several tools and calculations. To compare accuracy, calls, tokens and time, I still need your Part 1 results for the 15 fixed questions.)
 
 ---
 
